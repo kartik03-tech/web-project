@@ -1,0 +1,15 @@
++----+-----------+--------------------+-----------------------------+
+| ID | name      | developer          | TASK                        |
++----+-----------+--------------------+-----------------------------+
+|  1 | Samser    | Backend Developer  | backend system              |
+|  2 | Akhil     | Backend Developer  | backend system              |
+|  3 | Vishvajit | Frontend Developer | Homescreen page             |
+|  4 | Sparsha   | Frontend Developer | Product listing + UI design |
+|  5 | Priyanka  | Frontend Developer | Product listing             |
+|  6 | Kartik    | Frontend Developer | Product Detailing           |
+|  7 | Kesar     | Frontend Developer | Shopping cart page          |
+|  8 | Nupoor    | Frontend Developer | Checkout Page               |
+|  9 | Priya     | Frontend Developer | Checkout Page               |
+| 11 | Siddharth | Frontend Developer | Checkout page               |
+| 11 | venkatesh | Frontend Developer | About Us/Contact Us         |
++----+-----------+--------------------+-----------------------------+
