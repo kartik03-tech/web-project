@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+}
+.navbar {
+    height: 60px;
+    background-color: #0f1111;
+    display: flex;
+    align-items:center ;
+    justify-content: space-evenly;
+}
+.logo {
+    color: white;
+    padding: 10px;
+    font-size:34px ;
+}
+.border {
+    border: 1.5px solid transparent;
+}
+.border:hover {
+    border: 1.5px solid white;
+    display: inline-block;
+}
+.nav-address {
+    color: white;
+}
+/* box2 */
+.add-first {
+color: #cccccc;
+margin-left: 15px;
+font-size: 0.85rem;
+}
+.add-second {
+    color:#ffffff;
+    font-size: 1rem;
+    margin-left: 2px;
+}
+.add-icon {
+    display: flex;
+    align-items: center;
+}
+.search-icon{
+    color: rgb(255, 255, 255);
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #febd68;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #0f1111;
+}
+/* box3 */
+.nav-search {
+    justify-content: space-evenly;
+    display: flex;
+    background-color: pink;
+    width: 620px;
+    height: 40px;
+    border-radius:5px ;
+}
+.search-select {
+    background-color: #f3f3f3;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    text-align:center ;
+    width:50px ;
+}
+.search-input {
+    width: 100%;
+    font-size: 1rem;
+
+}
+span {
+    font-size: 0.7rem;
+    float: right;
+    position: relative;
+    bottom: 4px;
+    color: white;
+
+}
+.nav-second {
+    font-size: 0.85rem;
+    color: white;
+}
+.des{
+    background-color: rgb(4, 105, 105);
+    width: 100vw;
+    height: 45px;
+}
+.cart-icon{
+    color: white;
+}
+.nav-search:hover{
+    border: 2px solid orange;
+}
+.panel{
+    display: flex;
+    background-color: #222f3d;
+    height: 40px;
+    color: white;
+    justify-content: left;
+    align-items: center;
+}
+.panel-ops p{ 
+    display: inline; 
+    margin-left: 10px;  
+    font-size: 18px;
+
+}
+.deals{
+    font-size: small;
+   position: relative;
+   left: 45px;
+animation-name: discount;
+animation-duration: 3s;
+animation-iteration-count: infinite;
+
+}
+@keyframes discount{
+    from{
+        transform:translateX(100%);
+       
+    }
+    to{
+        transform:translateX(10%);
+    }
+}
+/* herosection */
+.hero-section{
+    background-image: url(hero.jpg);
+    height: 660px;
+    background-size: cover;
+
+}
