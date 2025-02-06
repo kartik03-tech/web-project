@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      padding: 15px;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #f4f4f4;
+      padding: 10px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+    .product {
+      border: 1px solid #ddd;
+      padding: 10px;
+      width: 30%;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .product-details {
+      margin-top: 10px;
+    }
+    .cart-page {
+      margin-top: 20px;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+    .cart-item span {
+      margin-right: 15px;
+    }
+    
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My E-Commerce Website</h1>
+</header>
+
+<nav>
+  <a href="#" onclick="showCategory('home')" style="background-image: url('home.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Home</a>
+  <a href="#" onclick="showCategory('mens')" style="background-image: url('men.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Men's Clothing</a>
+  <a href="#" onclick="showCategory('womens')" style="background-image: url('women.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Women's Clothing</a>
+  <a href="#" onclick="showCategory('kids')" style="background-image: url('kids.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Kids's Clothing</a>
+  <a href="#" onclick="showCategory('accessories')" style="background-image: url('acces.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Accessories</a>  
+ <a href="#" onclick="showCategory('Headwear')" style="background-image: url('head.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Head Wear</a>
+  <a href="cart.html"  style="background-image: url('cart.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Cart</a>
+  <a href="#" style="background-image: url('sale.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Sale</a>
+  <a href="#" style="background-image: url('con.jpg'); background-size: cover; background-position: center; padding: 10px 15px; text-decoration: none; color: white;">Contact Us</a>
+</nav>
+
+<div id="products-container" class="product-section">
+  <!-- Products will be displayed here -->
+</div>
+
+<!-- Cart Page -->
+<div id="cart-page" class="cart-page" style="display: none;">
+  <h2>Your Cart</h2>
+  <div id="cart-items">
+    <!-- Cart items will be displayed here -->
+  </div>
+  <button onclick="checkout()">Proceed to Checkout</button>
+</div>
+
+<script>
+  let products = {
+    mens: [
+      { id: 1, name: "Men's Black T-Shirt", price: 50, img: 'black.jpg', category: 'mens' },
+      { id: 2, name: "Men's Grey track", price: 65, img: 'grey.jpg', category: 'mens' },
+      { id: 3, name: "Men's Hoodie", price: 70, img: 'hoodie.jpg', category: 'mens' },
+      { id: 4, name: "Casual White Sirt", price: 70, img: 'white.jpg', category: 'mens' },
+    ],
+    womens: [
+      { id:6, name: "Red Women's Dress", price: 90, img: 'dress.jpg', category: 'womens' },
+      { id:7, name: "Women's Skirt", price: 80, img: 'skirt.jpg', category: 'womens' },
+      { id:8, name: "Lymio Slim Fit Tops for Women", price: 75, img: 'top.jpg', category: 'womens' }
+    ],
+    kids: [
+      { id:9, name: "Kids T-Shirt", price: 15, img: 'kid.jpg', category: 'kids' },
+      { id:10, name: "Kids Jeans", price: 20, img: 'jean.jpg', category: 'kids' },
+      { id:11, name: "Kids Jacket", price: 25, img: 'jacket.jpg', category: 'kids' }
+    ],
+    accessories: [
+          { id: 12, name: "luxury men quartz watch", price: 200, img: 'watch.jpg', category: 'accessories' }
+     ],
+     Headwear: [
+          { id: 13, name: "Hats for men", price: 20, img: 'hat.jpg', category:'head wear' }
+     ]
+   };
+
+  function showCategory(category) {
+    const productsContainer = document.getElementById('products-container');
+    productsContainer.innerHTML = '';
+
+    let selectedProducts = products[category] || [];
+    
+    selectedProducts.forEach(product => {
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+      productDiv.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>$${product.price}</p>
+        <select id="size-${product.id}">
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+        <button onclick="addToCart(${product.id})">Add to Cart</button>
+        <button onclick="buyNow(${product.id})">Buy Now</button>
+      `;
+      productsContainer.appendChild(productDiv);
+    });
+  }
+
+  function addToCart(productId) {
+    const size = document.getElementById(`size-${productId}`).value;
+    const product = findProductById(productId);
+    if (product) {
+      // Create a new cart item
+      const cartItem = { ...product, size };
+      
+      // Get the existing cart from localStorage or create an empty one
+      let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+      
+      // Add the new item to the cart
+      storedCart.push(cartItem);
+      
+      // Save the updated cart back to localStorage
+      localStorage.setItem('cart', JSON.stringify(storedCart));
+
+      alert(`${product.name} added to cart.`);
+    }
+  }
+
+  function buyNow(productId) {
+    addToCart(productId);
+    window.location.href = 'cart.html';
+  }
+
+  function findProductById(productId) {
+    const allProducts = [...products.mens, ...products.womens, ...products.kids];
+    return allProducts.find(product => product.id === productId);
+  }
+
+  function showCart() {
+    const cartPage = document.getElementById('cart-page');
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = '';
+
+    // Get the cart from localStorage
+    const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    storedCart.forEach(item => {
+      const cartItemDiv = document.createElement('div');
+      cartItemDiv.className = 'cart-item';
+      cartItemDiv.innerHTML = `
+        <span>${item.name} (${item.size})</span>
+        <span>$${item.price}</span>
+      `;
+      cartItemsDiv.appendChild(cartItemDiv);
+    });
+
+    cartPage.style.display = 'block';
+  }
+
+  function checkout() {
+    localStorage.removeItem('cart');
+    alert('Proceeding to checkout...');
+  }
+
+  // Show the cart if we're on the cart page
+  if (window.location.pathname.includes('cart.html')) {
+    showCart();
+  }
+</script>
+
+</body>
+</html>
