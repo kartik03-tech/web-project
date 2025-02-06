@@ -1,0 +1,85 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark gray text color */
+  margin: 0;
+  padding: 0;
+}
+
+/* Product Container */
+.product-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Product Image */
+.product-image img {
+  max-width:20%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Product Details */
+.product-details {
+  margin-left: 40px;
+  max-width: 600px;
+}
+
+.product-title {
+  font-size: 2.5rem;
+  color: #222222; /* Darker text for title */
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 2rem;
+  color: #e74c3c; /* Red color for price */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555555; /* Gray text for description */
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.product-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart {
+  background-color: #3498db; /* Blue color for Add to Cart */
+  color: #ffffff;
+}
+
+.add-to-cart:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+}
+
+.buy-now {
+  background-color: #2ecc71; /* Green color for Buy Now */
+  color: #ffffff;
+}
+
+.buy-now:hover {
+  background-color: #27ae60; /* Darker green on hover */
+}
